@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مفاجأة لك 💖</title>
+    <style>
+        /* التنسيق الجمالي مثل الفيديو */
+        body {
+            background-color: #f0f8ff;
+            background-image: url('https://www.transparenttextures.com/patterns/cubes.png'); /* خلفية بنمط بسيط */
+            font-family: 'Cairo', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 350px;
+            border: 3px dashed #a0c4ff;
+        }
+        .stage { display: none; }
+        .active { display: block; animation: fadeIn 0.5s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        
+        button {
+            background: #a0c4ff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        button:hover { background: #91b7f2; }
+        img { width: 100px; margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div id="stage1" class="stage active">
+            <img src="https://cdn-icons-png.flaticon.com/512/3076/3076661.png" alt="Hi">
+            <h2>أهلاً يا جميلة! 👋</h2>
+            <p>اضغطي على الزر بالأسفل..</p>
+            <button onclick="nextStage(2)">التالي ✨</button>
+        </div>
+
+        <div id="stage2" class="stage">
+            <img src="https://cdn-icons-png.flaticon.com/512/2913/2913520.png" alt="Letter">
+            <h2>وصلتكِ رسالة جديدة! 💌</h2>
+            <p>هل تريدين فتحها؟</p>
+            <button onclick="nextStage(3)">افتحيها الآن</button>
+        </div>
+
+        <div id="stage3" class="stage">
+            <h2>أحببتُ أن أخبركِ.. 💖</h2>
+            <p style="text-align: right; line-height: 1.6;">
+                أنتِ أجمل ما حدث في يومي، وأردتُ أن أصنع لكِ هذا الرابط الصغير ليعبر عن مدى تقديري لوجودكِ.
+            </p>
+            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" style="width: 50px;">
+            <br>
+            <button onclick="location.reload()">إعادة من البداية</button>
+        </div>
+    </div>
+
+    <script>
+        function nextStage(stageNum) {
+            // إخفاء كل المراحل
+            document.querySelectorAll('.stage').forEach(s => s.classList.remove('active'));
+            // إظهار المرحلة المطلوبة
+            document.getElementById('stage' + stageNum).classList.add('active');
+        }
+    </script>
+</body>
+</html>
